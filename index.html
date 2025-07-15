@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warehouse Robot Route Optimization</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Warehouse Robot Route Optimization</h1>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="dashboard">
+            <div class="control-panel">
+                <h2>Control Panel</h2>
+                
+                <div class="instructions">
+                    <p>Design your warehouse layout and create orders for robot fulfillment. The system will calculate optimal routes considering obstacles and time constraints.</p>
+                </div>
+                
+                <div class="mode-selector">
+                    <h3>Edit Mode</h3>
+                    <div class="mode-buttons">
+                        <button class="mode-btn active" data-mode="obstacle">Place Obstacles</button>
+                        <button class="mode-btn" data-mode="pickup">Define Pickup Points</button>
+                        <button class="mode-btn" data-mode="delivery">Set Delivery Point</button>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="time-constraint">Time Constraint (seconds):</label>
+                    <input type="number" id="time-constraint" min="10" value="60">
+                </div>
+                
+                <div class="form-group">
+                    <label for="robot-speed">Robot Speed (cells/second):</label>
+                    <input type="number" id="robot-speed" min="0.5" max="5" step="0.5" value="1">
+                </div>
+                
+                <div class="actions">
+                    <button id="find-route" class="btn btn-success">Find Optimal Route</button>
+                    <button id="simulate" class="btn" disabled>Simulate Robot</button>
+                    <button id="reset" class="btn btn-danger">Reset Grid</button>
+                </div>
+                
+                <div class="stats">
+                    <h3>Statistics</h3>
+                    <div id="stats-content">
+                        <p>Total Distance: <span id="total-distance">0</span> cells</p>
+                        <p>Estimated Time: <span id="estimated-time">0</span> seconds</p>
+                        <p>Time Constraint Met: <span id="constraint-met">N/A</span></p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="visualization">
+                <h2>Warehouse Layout</h2>
+                
+                <div class="legend">
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: var(--light-gray);"></div>
+                        <span>Empty Space</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: var(--secondary-color);"></div>
+                        <span>Obstacle</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: var(--primary-color);"></div>
+                        <span>Robot Start</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: var(--warning-color);"></div>
+                        <span>Pickup Point</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: var(--success-color);"></div>
+                        <span>Delivery Point</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background-color: rgba(52, 152, 219, 0.5);"></div>
+                        <span>Route Path</span>
+                    </div>
+                </div>
+                
+                <div class="grid-container">
+                    <div class="warehouse-grid" id="warehouse-grid"></div>
+                    <div class="robot" id="robot">R</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
