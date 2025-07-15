@@ -36,6 +36,7 @@ Design your warehouse layout, define pickup and delivery points, and simulate ro
 📂 File Structure
 
 warehouse-robot-route-optimization/
+
 ├── index.html # Main UI and layout
 ├── styles.css # Styling and responsive design
 ├── script.js # Logic: grid, pathfinding, simulation
@@ -45,7 +46,7 @@ warehouse-robot-route-optimization/
 
 This project is licensed under the MIT License.
 
-👨‍💻 AUTHOR
+👨‍💻 AUTHOR : 
 Anirudh Choudhary
 
 GitHub: @Anirudh-Geu
